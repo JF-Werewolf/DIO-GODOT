@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://2ocosy5a48hj"]
+
+[ext_resource type="PackedScene" uid="uid://xgplja70rsxc" path="res://Forte/forte.tscn" id="2_cm7ht"]
+
+[node name="TestAssets" type="Node2D"]
+
+[node name="Forte" parent="." instance=ExtResource("2_cm7ht")]
+position = Vector2(306, 207)

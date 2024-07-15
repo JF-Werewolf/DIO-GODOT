@@ -1,0 +1,13 @@
+res://test_Scenes/test_Map.tscn
+res://Forte/jump.gd
+res://tileSetTest.tres
+res://Magro/magro.tscn
+res://Forte/forte.tscn
+res://Objects/life_bar.tscn
+res://Magro/idle.gd
+res://scripts/charaterClass.gd
+res://Forte/atack.gd
+res://Magro/damage.gd
+res://Magro/atack.gd
+res://Forte/damage.gd
+res://Forte/shield.gd
