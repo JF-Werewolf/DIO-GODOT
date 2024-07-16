@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=3 uid="uid://xgplja70rsxc"]
+[gd_scene load_steps=136 format=3 uid="uid://xgplja70rsxc"]
 
 [ext_resource type="Texture2D" uid="uid://brxonkpb36yd" path="res://sprites/Forte_Walk.png" id="1_5yqfu"]
 [ext_resource type="Script" path="res://Forte/forte.gd" id="1_yiv5a"]
@@ -2410,6 +2410,37 @@ tracks/0/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_tghfn"]
+resource_name = "atack6"
+length = 1.30001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:atackLock")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"checkAtack"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yve85"]
 _data = {
 "RESET": SubResource("Animation_y3yu2"),
@@ -2417,6 +2448,7 @@ _data = {
 "atack2_lock": SubResource("Animation_intea"),
 "atack3_lock": SubResource("Animation_fr3mg"),
 "atack4_lock": SubResource("Animation_sq1hv"),
+"atack6_lock": SubResource("Animation_tghfn"),
 "impact1_lock": SubResource("Animation_enmtb"),
 "impact2_lock": SubResource("Animation_d57pe")
 }
@@ -2439,6 +2471,7 @@ scale = Vector2(1, 0.8)
 shape = SubResource("CircleShape2D_526kf")
 
 [node name="standSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -42)
 texture = ExtResource("2_b407s")
 hframes = 8

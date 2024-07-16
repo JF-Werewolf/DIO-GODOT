@@ -26,8 +26,8 @@ func enter():
 	#print("STATE MACHINE: ", sm)
 	if parent.stateM.previousState == jumpState:
 		animationName = "atack1" 
+		parent.atackRange = 0.0
 		AnimCarry = true
-		teste = 0
 	
 	else:
 		animationName = "atack" + str(newAtack())
@@ -51,6 +51,7 @@ func newAtack():
 	while true:
 		if atack != previousAtack:
 			previousAtack = atack
+			parent.atackRange = 0.35
 			return atack
 		else: 
 			atack = randi_range(2,4)
@@ -61,18 +62,16 @@ func checkAtack():
 		var bodies = parent.get_node("weaponArea").get_overlapping_bodies()
 		bodies.erase(parent)
 		for body in bodies:
-			if parent.angle.dot(parent.global_position.direction_to(body.global_position)) > 0.3:
+			if parent.angle.dot(parent.global_position.direction_to(body.global_position)) > parent.atackRange:
 				body.atacker = parent
 				body.stateM.changeState(body.get_node("damage"))
 				#return true
 				
-func hideSprite():
-	parent.hideSprite(animationName)
 	
 func playAnimation():
 	#print("ATACK: ", animationName )
 	#parent.atackLock = true
-	parent.showSprite(animationName)
+	#parent.showSprite(animationName)
 	parent.actionLocks.play(animationName+"_lock")
 	parent.actionLocks.seek(0.0)
 	parent.playAnimation(animationName,AnimCarry)
@@ -89,21 +88,26 @@ func processPhysics(delta):
 		newDir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	if(!parent.atackLock):
-		
-		if teste == 0: 
-			teste +=1
 			
 		if Input.is_action_just_pressed("atack"): 
 			newDir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 			if newDir:
-				parent.ActionDir = parent.getAnimDir(newDir) 
+				parent.angle = newDir
+				parent.ActionDir = parent.getAnimDir(parent.angle) 
 				
-			hideSprite()
-			animationName = "atack" + str(newAtack())
-			playAnimation()
-			#checkAtack()
-			chain += 1
+			#hideSprite()
+			if chain >= 4:
+				animationName = "atack6"
+				parent.atackRange = -1.0
+				chain = 0
 			
+			else:
+			
+				animationName = "atack" + str(newAtack())
+				#checkAtack()
+				chain += 1
+				
+			playAnimation()
 			print('CHAIN: ', chain)
 			
 		if Input.is_action_pressed("defend"):

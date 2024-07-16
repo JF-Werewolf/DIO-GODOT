@@ -12,11 +12,12 @@ func _ready():
 	
 func enter():
 	#print("LOLOLOL:", get_parent().is_node_ready ( ))
-	parent.showSprite(animationName)
+	#parent.showSprite(animationName)
 	parent.playAnimation(animationName,false) 
 
 func exit():
-	parent.hideSprite(animationName)
+	pass
+	#parent.hideSprite(animationName)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func processPhysics(delta):
 	return null

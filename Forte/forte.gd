@@ -15,6 +15,7 @@ func getAnimDir(vec):
 	return(super(vec))
 	
 func _ready():
+	atackRange = 0.3
 	maxHealth = 50
 	health = 50
 	Speed = 0

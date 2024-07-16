@@ -47,6 +47,6 @@ func processPhysics(delta):
 		return jumpState
 		
 		
-	get_parent().velocity = lerp(get_parent().velocity, Vector2(0,0), get_parent().lerpFactor)
+	parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor)
 	
-	get_parent().move_and_slide() 
+	parent.move_and_slide() 

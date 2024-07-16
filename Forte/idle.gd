@@ -10,7 +10,6 @@ var NewDir : Vector2
 # Called when the node enters the scene tree for the first time.
 func enter():
 	super()
-	parent.angle = Vector2(1,0).rotated((parent.ActionDir + 1) * 0.785398)
 	 # Replace with function body.
 func exit():
 	super()

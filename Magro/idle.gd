@@ -77,7 +77,7 @@ func newAction():
 		changeSprite("run")
 		carryAnimation = true
 		#print("GET TARGET: ", get_parent().navigationTarget)
-	print("Generate Action: ", action)
+	#print("Generate Action: ", action)
 		
 func changeSprite(newSprite):
 	parent.hideSprite(animationName)
@@ -98,14 +98,16 @@ func checkAtack():
 func checkTarget():
 	if parent.get_node("targetArea").get_overlapping_bodies().size() >1:
 		var bodies = parent.get_node("targetArea").get_overlapping_bodies()
+		var distance
 		bodies.erase(parent)
 		for body in bodies:
-			#200/50
-			if(randi_range(0,120) == 50):
+			distance = parent.global_position.distance_to(body.global_position)
+			#print("DISTANCE: ", distance, "  RANDOM: ", randi_range(0,distance))
+			if(randi_range(0,distance + 10) == int(distance/2)):
 				if parent.angle.dot(parent.global_position.direction_to(body.global_position)) > 0:
 					if parent.global_position.direction_to(body.global_position).dot(body.angle) > 0.1:
 						parent.charTarg = body
-						print("LOL")
+						#print("LOL")
 						return true
 						
 						
@@ -147,70 +149,14 @@ func processPhysics(delta):
 	if parent.getAnimDir(parent.angle) != parent.ActionDir:
 		parent.ActionDir = parent.getAnimDir(parent.angle) 
 		parent.playAnimation(animationName, carryAnimation)
+		
 	
 	parent.velocity = lerp(parent.velocity, parent.angle*targetSpeed, parent.lerpFactor /3)
 	parent.move_and_slide()
 	
 	if checkTarget():
-		print("ATACANDO")
+		#print("ATACANDO")
 		return atackState
 	
 	
 	
-	
-	
-	
-	
-	#if(! positionTarget):
-		#if(Time.get_unix_time_from_system() - timeStart  > actionTimer):
-			#var action = randi_range(1,3)
-			#
-			#match action:
-				#1:
-					#pass
-				#2:
-					#newDir = randi_range(1,8)
-				#3:
-					#get_parent().hideSprite(animationName)
-					#animationName = "run"
-					#carryAnimation = true
-					#get_parent().showSprite(animationName)
-					#get_target()
-					#
-					#
-			#timeStart = Time.get_unix_time_from_system()
-			#actionTimer = randf_range(0.0, 5.0)
-			#print(action)
-	#
-	#else:
-		#normalDiff = get_parent().global_position.direction_to(get_parent().navigationAgent.get_next_path_position())
-		##normalDiff = get_parent().navigationAgent.get_next_path_position() - get_parent().global_position
-		##normalDiff = normalDiff.normalized()
-		##get_parent().velocity = direction * 140
-		#get_parent().velocity = lerp(get_parent().velocity, normalDiff * get_parent().Speed, get_parent().lerpFactor * 1.8)
-		#get_parent().move_and_slide()
-		#newDir = get_parent().getAnimDir(normalDiff)
-		#
-		#
-		#if((positionTarget - get_parent().global_position).length() < 6):
-			#print("ANGLE: ", normalDiff.angle())
-			##red+=1
-			##print("TARGET LEN: ", target.length(),  get_parent().global_position.length(), red)
-			#positionTarget = Vector2.ZERO
-			#get_parent().hideSprite(animationName)
-			#animationName = "stand"
-			#carryAnimation = false
-			#get_parent().showSprite(animationName)
-
-		
-	#if newDir != get_parent().ActionDir:
-		#get_parent().ActionDir = newDir 
-		#get_parent().showSprite(animationName)
-		#get_parent().playAnimation(animationName, carryAnimation)
-	
-	
-	#get_parent().move_and_slide()
-	#get_parent().velocity = Vector2(40,40)
-	#get_parent().velocity = lerp(get_parent().velocity, normalDiff * get_parent().Speed, get_parent().lerpFactor * 1.8)
-	
-	#get_parent().move_and_slide() 

@@ -17,15 +17,12 @@ func exit():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func processPhysics(delta):
-	
-	if Input.is_action_just_pressed("atack"):
-		atackState.animationName = "atack1"
-		return atackState
 		
-	parent.angle = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	NewDir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	if(parent.angle):
-		#print("DIR: ", get_parent().newDir)
+	if(NewDir):
+		parent.angle = NewDir
+		
 		if parent.getAnimDir(parent.angle) != parent.ActionDir:
 			parent.ActionDir = parent.getAnimDir(parent.angle) 
 			parent.playAnimation(animationName, true)
@@ -34,6 +31,10 @@ func processPhysics(delta):
 			return runState
 	else:
 		return standState
+		
+	if Input.is_action_just_pressed("atack"):
+		#atackState.animationName = "atack1"
+		return atackState
 		
 	if Input.is_action_just_pressed("jump"):
 		return jumpState

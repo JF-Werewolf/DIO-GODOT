@@ -15,9 +15,6 @@ func enter():
 	if parent.stateM.previousState == shieldState:
 		if parent.angle.dot(parent.global_position.direction_to(parent.atacker.global_position)) > 0.5:
 			
-			animationName = "shield1"
-			parent.showSprite(animationName)
-			parent.playAnimation(animationName, true)
 			return shieldState
 		
 	if parent.angle.dot(parent.global_position.direction_to(parent.atacker.global_position)) > 0:
@@ -59,8 +56,8 @@ func processPhysics(delta):
 		if Input.is_action_pressed("defend"):
 			return shieldState
 		
-	get_parent().velocity = lerp(get_parent().velocity, Vector2(0,0), get_parent().lerpFactor * 1.8)
+	parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor * 1.8)
 	
-	get_parent().move_and_slide() 
+	parent.move_and_slide() 
 	
 	

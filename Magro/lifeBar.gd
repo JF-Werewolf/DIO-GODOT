@@ -8,6 +8,8 @@ var maxSize
 func _ready():
 	parent = get_parent().get_parent()
 	maxSize = size.x # Replace with function body.
+	print ("LOL", parent.maxHealth)
+	scale.x = parent.maxHealth/2
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

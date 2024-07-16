@@ -38,17 +38,5 @@ wall_min_slide_angle = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="forte"]
 
-[node name="magro2" parent="." instance=ExtResource("3_wuxba")]
-position = Vector2(-112, 431)
-
 [node name="magro" parent="." instance=ExtResource("3_wuxba")]
-position = Vector2(-221, 746)
-
-[node name="magro3" parent="." instance=ExtResource("3_wuxba")]
-position = Vector2(263, 770)
-
-[node name="magro4" parent="." instance=ExtResource("3_wuxba")]
-position = Vector2(98, 626)
-
-[node name="magro5" parent="." instance=ExtResource("3_wuxba")]
-position = Vector2(441, 497)
+position = Vector2(-72, 489)

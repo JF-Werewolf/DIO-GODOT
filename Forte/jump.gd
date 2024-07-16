@@ -23,13 +23,13 @@ func processPhysics(delta):
 		
 	NewDir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	if(get_parent().actionFinished):
+	if(parent.actionFinished):
 		
 		if Input.is_action_just_pressed("atack"):
 			return atackState
 		
 		if(NewDir):
-			get_parent().ActionDir = get_parent().getAnimDir(NewDir)
+			parent.ActionDir = parent.getAnimDir(NewDir)
 			if(Input.is_key_pressed(KEY_SHIFT)):
 				return runState
 			
@@ -39,11 +39,13 @@ func processPhysics(delta):
 		
 	if(NewDir):
 		#print("LERP TEST -- CURRENT: ", get_parent().velocity, "  TARGET: ", NewDir* get_parent().Speed, "  LERP: ", get_parent().lerpFactor)
-		get_parent().velocity = lerp(get_parent().velocity, NewDir * get_parent().Speed, get_parent().lerpFactor)
+		parent.velocity = lerp(parent.velocity, parent.angle * parent.Speed, parent.lerpFactor)
 		
-		#NewDir * get_parent().Speed
-		
-	else: get_parent().velocity = lerp(get_parent().velocity, Vector2(0,0), get_parent().lerpFactor * 0.8)
+	else: parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor * 0.8)
 	
-	get_parent().move_and_slide() 
+	if Input.is_action_just_pressed("atack"):
+		atackState.animationName = "atack2"
+		return atackState
+	
+	parent.move_and_slide() 
 	
