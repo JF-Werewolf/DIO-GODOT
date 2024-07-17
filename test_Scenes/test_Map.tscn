@@ -40,3 +40,9 @@ wall_min_slide_angle = 0.0
 
 [node name="magro" parent="." instance=ExtResource("3_wuxba")]
 position = Vector2(-72, 489)
+
+[node name="magro2" parent="." instance=ExtResource("3_wuxba")]
+position = Vector2(357, 513)
+
+[node name="magro3" parent="." instance=ExtResource("3_wuxba")]
+position = Vector2(121, 624)

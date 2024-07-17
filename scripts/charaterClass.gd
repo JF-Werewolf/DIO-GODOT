@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 var maxHealth = 10 
 var health = 10
+var healthPercentage = 1.0
 var Speed = 0
 var baseDamage = 3
 var strength = 10
@@ -79,6 +80,12 @@ func _ready():
 	
 func _physics_process(delta):
 	stateM.processPhysics(delta)
+	
+func takeDamage(foe):
+	atacker = foe
+	stateM.changeState(get_node("damage"))
+	health -= foe.baseDamage 
+	healthPercentage = float(health)/float(maxHealth)
 
 func _on_animation_player_animation_finished(_anim_name):
 	actionFinished = true 

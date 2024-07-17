@@ -14,10 +14,7 @@ var timer = 10
 func enter():
 	
 	parent.health -= parent.atacker.baseDamage
-	#print(parent.health)
-			
 	parent.velocity = parent.atacker.global_position.direction_to(parent.global_position) * (parent.atacker.strength * 10 + 100)
-	
 	animationName = "impact1"
 		
 	carryAnimation = false

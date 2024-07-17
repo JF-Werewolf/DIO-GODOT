@@ -26,7 +26,6 @@ func enter():
 	parent.actionLocks.play(animationName+"_lock")
 	parent.actionLocks.seek(0.0)
 	parent.playAnimation(animationName, carryAnimation)
-	parent.health -= parent.atacker.baseDamage
 	super()
 	
 func exit():

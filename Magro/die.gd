@@ -6,7 +6,7 @@ var count = 0
 # Called when the node enters the scene tree for the first time.
 
 func enter():
-	print("he ded")
+	#print("he ded")
 	parent.get_node("body").queue_free()
 	parent.playAnimation(animationName, false)
 	time = Time.get_unix_time_from_system()
