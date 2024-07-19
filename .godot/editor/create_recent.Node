@@ -1,6 +1,8 @@
+Node2D
+Line2D
+RayCast2D
 Node
 Sprite2D
-Node2D
 ColorRect
 AnimationPlayer
 CollisionShape2D
@@ -10,5 +12,3 @@ Timer
 NavigationAgent2D
 NavigationRegion2D
 Camera2D
-AnimatedSprite2D
-AnimationTree

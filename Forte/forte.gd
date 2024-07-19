@@ -15,6 +15,31 @@ func getAnimDir(vec):
 	return(super(vec))
 	
 func _ready():
+	
+	var teste = [1, 1, 1, 1, 1]
+	for x in range(teste.size()-1): 
+		print(x, "  LOLOL")
+	#var lol = [1,2,3]
+	#print("lol: ", lol)
+	#lol.push_back(lol[0])
+	#print("LOL: ", lol)
+	#
+	#lol.insert(2, lol.pop_at(3))
+	#print("uwu: ", lol)
+	
+	#var lol = [3, 7, 1, 9, 2, 15, 8, 1, 67, 2, 35, 3, 35, 3, 6, 76, 46]
+	#print("ANTES: ", lol)
+	#for x in range(1, lol.size()-1):
+		#var smallest = 100
+		#var angle = 0
+		#for y in range(x , lol.size()):
+			#angle = lol[y]
+			#if angle <= smallest:
+				#smallest = angle
+				#lol.insert(x, lol.pop_at(y))
+				#
+	#print("DEPOIS: ", lol)
+		
 	atackRange = 0.3
 	maxHealth = 50
 	health = 50

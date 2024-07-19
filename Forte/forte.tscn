@@ -2614,13 +2614,14 @@ runState = NodePath("../run")
 atackState = NodePath("../atack")
 animationName = "jump"
 
-[node name="shield" type="Node" parent="stateMachine" node_paths=PackedStringArray("idleState", "walkState", "runState", "jumpState", "atackState")]
+[node name="shield" type="Node" parent="stateMachine" node_paths=PackedStringArray("idleState", "walkState", "runState", "atackState", "jumpState", "damageState")]
 script = ExtResource("19_dwst3")
 idleState = NodePath("../idle")
 walkState = NodePath("../walk")
 runState = NodePath("../run")
-jumpState = NodePath("../jump")
 atackState = NodePath("../atack")
+jumpState = NodePath("../jump")
+damageState = NodePath("../damage")
 animationName = "shield1"
 
 [node name="damage" type="Node" parent="stateMachine" node_paths=PackedStringArray("idleState", "walkState", "runState", "jumpState", "atackState", "shieldState")]

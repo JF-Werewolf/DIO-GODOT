@@ -91,8 +91,7 @@ func processPhysics(delta):
 			changeSprite("run")
 			carryAnimation = true
 			parent.playAnimation(animationName, carryAnimation)
-			if (parent.navigationTarget - parent.global_position).length() <100:
-				tooClose = true
+			tooClose = true
 		
 		
 		

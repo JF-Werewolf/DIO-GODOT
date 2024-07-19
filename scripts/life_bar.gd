@@ -11,7 +11,7 @@ var maxSize
 func _ready():
 	parent = get_parent()
 	maxSize = lifeBar.size.x 
-	print(parent.maxHealth)# Replace with function body.
+	
 	#print ("LOL", parent.maxHealth)
 	#scale.x = parent.maxHealth/2
 

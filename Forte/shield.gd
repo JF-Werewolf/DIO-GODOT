@@ -3,8 +3,9 @@ extends State
 @export var idleState: State
 @export var walkState: State
 @export var runState: State
-@export var jumpState: State
 @export var atackState: State
+@export var jumpState: State
+@export var damageState: State
 
 var animationCarry : bool
 
@@ -12,7 +13,7 @@ var NewDir : Vector2
 # Called when the node enters the scene tree for the first time.
 func enter():
 	super()
-	if parent.stateM.previousState == parent.get_node("damage"):
+	if parent.stateM.previousState == damageState:
 		parent.animationPlayer.seek(0.07)
 	animationCarry = true
 	#parent.angle = Vector2(1,0).rotated((parent.ActionDir + 1) * 0.785398)

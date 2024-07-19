@@ -34,7 +34,12 @@ func processPhysics(delta):
 	#return parent.stateMachine.previousState
 	
 	if ! parent.actionLock:
-		return parent.stateM.previousState
+		
+		if randi_range(0, parent.maxHealth) + 5 > parent.health:
+			return runAwayState
+		
+		parent.charTarg = parent.atacker
+		return atackState
 	
 	#if(!parent.actionLock):
 		#NewDir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")

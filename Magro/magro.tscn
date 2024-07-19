@@ -921,7 +921,7 @@ script = ExtResource("1_y4g73")
 [node name="Navigation" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
-avoidance_enabled = true
+target_desired_distance = 15.0
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="Navigation"]
@@ -1009,11 +1009,17 @@ idleState = NodePath("../idle")
 runAwayState = NodePath("../runAway")
 animationName = "run"
 
-[node name="runAway" type="Node" parent="stateMachine"]
+[node name="runAway" type="Node" parent="stateMachine" node_paths=PackedStringArray("atackState", "idleState")]
 script = ExtResource("7_dnde7")
+atackState = NodePath("../atack")
+idleState = NodePath("../idle")
+animationName = "run"
 
-[node name="damage" type="Node" parent="stateMachine" node_paths=PackedStringArray("dieState")]
+[node name="damage" type="Node" parent="stateMachine" node_paths=PackedStringArray("idleState", "atackState", "runAwayState", "dieState")]
 script = ExtResource("8_b0xxw")
+idleState = NodePath("../idle")
+atackState = NodePath("../atack")
+runAwayState = NodePath("../runAway")
 dieState = NodePath("../die")
 animationName = "stand"
 
@@ -1040,5 +1046,22 @@ scale = Vector2(0.501831, 0.752633)
 color = Color(0.0941176, 0.72549, 0.305882, 0.568627)
 
 [node name="lifeBar" parent="." instance=ExtResource("10_ex0mb")]
+
+[node name="scape" type="Line2D" parent="."]
+points = PackedVector2Array(50, 0, 0, 0)
+width = 5.0
+default_color = Color(0.816406, 0.146927, 0.149826, 1)
+
+[node name="pair0" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(0.200946, 0.539349, 0.879814, 1)
+
+[node name="pair1" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(0.186079, 0.117412, 0.68905, 1)
+
+[node name="enemies" type="Node2D" parent="."]
 
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

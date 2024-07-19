@@ -84,8 +84,6 @@ func _physics_process(delta):
 func takeDamage(foe):
 	atacker = foe
 	stateM.changeState(get_node("damage"))
-	health -= foe.baseDamage 
-	healthPercentage = float(health)/float(maxHealth)
 
 func _on_animation_player_animation_finished(_anim_name):
 	actionFinished = true 

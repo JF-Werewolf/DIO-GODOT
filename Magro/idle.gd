@@ -6,6 +6,7 @@ extends State
 @export var charTarg: Character
 
 var targetSpeed = 0
+
 var targetRange= 350
 var positionTarget : Vector2 = Vector2(0,0)
 
@@ -13,7 +14,7 @@ var angleTarget
 
 var red = 0
 
-var timeStart = 0
+var timeStart = Time.get_unix_time_from_system()
 var actionTimer = 2.0
 
 var carryAnimation = false
@@ -118,6 +119,7 @@ func processPhysics(delta):
 		
 	if action == 1:
 		if(Time.get_unix_time_from_system() - timeStart > actionTimer):
+			pass
 			action = 0
 		
 	if action == 2:
@@ -154,8 +156,8 @@ func processPhysics(delta):
 	parent.velocity = lerp(parent.velocity, parent.angle*targetSpeed, parent.lerpFactor /3)
 	parent.move_and_slide()
 	
+	
 	if checkTarget():
-		#print("ATACANDO")
 		return atackState
 	
 	

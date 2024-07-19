@@ -12,11 +12,15 @@ var carryAnimation = false
 var NewDir : Vector2
 # Called when the node enters the scene tree for the first time.
 func enter():
+	#print("PREVIOUS: ", parent.stateM.previousState)
 	if parent.stateM.previousState == shieldState:
-		if parent.angle.dot(parent.global_position.direction_to(parent.atacker.global_position)) > 0.5:
-			
+		if parent.angle.dot(parent.global_position.direction_to(parent.atacker.global_position)) > 0.3:
+			#print("DEFESA")
 			return shieldState
-		
+	
+	#print("DANO")
+	parent.health -= parent.atacker.baseDamage 
+	parent.healthPercentage = float(parent.health)/float(parent.maxHealth)
 	if parent.angle.dot(parent.global_position.direction_to(parent.atacker.global_position)) > 0:
 		animationName = "impact1"
 	else:
@@ -35,6 +39,9 @@ func exit():
 func processPhysics(delta):
 	
 	if(!parent.actionLock):
+		if Input.is_action_pressed("defend"):
+			return shieldState
+			
 		NewDir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		
 		if(NewDir):
@@ -51,9 +58,6 @@ func processPhysics(delta):
 			
 		if Input.is_action_just_pressed("jump"):
 			return jumpState
-			
-		if Input.is_action_pressed("defend"):
-			return shieldState
 		
 	parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor * 1.8)
 	
