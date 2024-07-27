@@ -23,9 +23,8 @@ func changeSprite(name):
 	
 func enter():
 	action = 1
-	animationName = "run"
+	animationName = "walk"
 	carryAnimation = true
-	tooClose = true
 	chaseStart = Time.get_unix_time_from_system()
 	lastHit = chaseStart
 	
@@ -34,19 +33,20 @@ func enter():
 func exit():
 	super()
 	
-func checkAtack():
-	
+func checkTarget():
 	if parent.get_node("weaponArea").overlaps_body(parent.charTarg):
 		if parent.angle.dot(parent.global_position.direction_to(parent.charTarg.global_position)) > 0.85:
-			#print("DAMAGE: ", body)
-			parent.charTarg.takeDamage(parent)
-			
-			#parent.charTarg.atacker = parent 
-			#if parent.charTarg.get_node("damage"):
-				#parent.charTarg.stateM.changeState(parent.charTarg.get_node("damage"))
-			#print("ATAQUES: ", TESTE)
 			return true
-
+			
+func checkAtack():
+	lastHit  = Time.get_unix_time_from_system()
+	
+	if parent.get_node("weaponArea").get_overlapping_bodies().size() >1:
+		var bodies = parent.get_node("weaponArea").get_overlapping_bodies()
+		bodies.erase(parent)
+		for body in bodies:
+			if parent.angle.dot(parent.global_position.direction_to(body.global_position)) > 0.1:
+				body.takeDamage(parent)
 
 func processPhysics(delta):	
 	
@@ -55,43 +55,37 @@ func processPhysics(delta):
 		parent.navigationTarget = parent.charTarg.global_position
 		parent.angle = parent.global_position.direction_to(parent.navigationAgent.get_next_path_position())
 		
-		if tooClose:
-			targetSpeed = parent.angle.rotated(PI) * parent.RunSpeed
-			if (parent.navigationTarget - parent.global_position).length() >100:
-				tooClose = false
 		
+		targetSpeed = parent.angle * parent.WalkSpeed
 		
-		else:
-			targetSpeed = parent.angle * parent.RunSpeed
-			if (parent.navigationTarget - parent.global_position).length() <110:
-				targetSpeed *=2
+		if(checkTarget()):
+			lastHit  = Time.get_unix_time_from_system()
+			animationName = "atack1"
+			changeSprite(animationName)
+			carryAnimation = false
+			parent.playAnimation(animationName, carryAnimation)
+			parent.actionLocks.play(animationName+"_lock")
+			parent.actionLocks.seek(0.0)
 			
-			if(checkAtack()):
-			#print("LOL")
-				parent.velocity = targetSpeed.rotated(PI) * 0.8 
-				targetSpeed = Vector2.ZERO
-				lastHit = Time.get_unix_time_from_system()
-				action = 2
-				changeSprite("stand")
-				carryAnimation = false
-				parent.playAnimation(animationName, carryAnimation)
+			targetSpeed = Vector2.ZERO
+			action = 2
+			print("Action: ", action )
 		
 		if parent.global_position.distance_to(parent.charTarg.global_position) > 350 - (80*parent.charTarg.healthPercentage):
 			#print ("DISTANCE: ", 350 - (80*parent.charTarg.healthPercentage))
 			return idleState
 			
-		if Time.get_unix_time_from_system() - lastHit > 12 - (6 * parent.charTarg.healthPercentage):
-			return idleState
+		
 	
 	if action == 2:
-		if Time.get_unix_time_from_system() - lastHit < 0.6:
+		if Time.get_unix_time_from_system() - lastHit < 0.5:
 			pass
 		else: 
 			action = 1
-			changeSprite("run")
+			changeSprite("walk")
 			carryAnimation = true
 			parent.playAnimation(animationName, carryAnimation)
-			tooClose = true
+			print("Action: ", action )
 		
 		
 		
