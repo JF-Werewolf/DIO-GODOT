@@ -102,6 +102,7 @@ func checkTarget():
 		var distance
 		bodies.erase(parent)
 		for body in bodies:
+			
 			distance = parent.global_position.distance_to(body.global_position)
 			#print("DISTANCE: ", distance, "  RANDOM: ", randi_range(0,distance))
 			if(randi_range(0,distance + 10) == int(distance/2)):
@@ -110,7 +111,7 @@ func checkTarget():
 						parent.charTarg = body
 						#print("LOL")
 						return true
-						
+			
 						
 func processPhysics(delta):	
 	

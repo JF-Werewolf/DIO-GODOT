@@ -16,9 +16,21 @@ func getAnimDir(vec):
 	
 func _ready():
 	
-	var teste = [1, 1, 1, 1, 1]
-	for x in range(teste.size()-1): 
-		print(x, "  LOLOL")
+	#var vec = Vector2(1,0)
+	#var rounded 
+	#var vec2
+	#
+	#for x in range(70):
+		#rounded = snapped(vec.angle(), 2*PI/2)
+		#vec2 = Vector2(1,0).rotated(snapped(vec.angle(), 2*PI/2))
+			#
+		#print("DEG: ",  rad_to_deg(vec.angle()), "ROUNDED: ", rad_to_deg(vec2.angle()))
+		#vec = vec.rotated(0.1)
+		#snapped(3.14159, 90)
+	
+	#var teste = [1, 1, 1, 1, 1]
+	#for x in range(teste.size()-1): 
+		#print(x, "  LOLOL")
 	#var lol = [1,2,3]
 	#print("lol: ", lol)
 	#lol.push_back(lol[0])

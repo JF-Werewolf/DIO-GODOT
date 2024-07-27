@@ -38,14 +38,14 @@ func _physics_process(delta):
 	
 	
 func pointEnemies(bodies):
-	var root : Node2D = $enemies
+	var root : Node2D = $enemiePointers
 	
 	for n in root.get_children():
 		root.remove_child(n)
 		n.queue_free() 
 		
 	var color = 0.0
-	for x in range(bodies.size()-1):
+	for x in range(bodies.size()):
 		var line = Line2D.new()
 		line.width = 3
 		line.add_point(Vector2.ZERO)
@@ -100,7 +100,7 @@ func scapeRoute():
 	var angle2
 	if targetArea.get_overlapping_bodies().size() > 1:
 		var bodies = targetArea.get_overlapping_bodies()
-		#pointEnemies(bodies)
+		pointEnemies(bodies)
 		bodies.erase(self)
 		#print(bodies)
 		bodies = sortByAngle(bodies)
