@@ -61,9 +61,7 @@ func _ready():
 	super()
 	
 func heal(amount):
-	health += amount
-	if health > maxHealth:
-		health = maxHealth
+	super(amount)
 	gameManager.UIUpdate()
 
 func _physics_process(delta):

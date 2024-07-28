@@ -6,6 +6,7 @@ extends State
 @export var jumpState: State
 @export var atackState: State
 @export var shieldState: State
+@export var dieState: State
 
 var carryAnimation = false
 
@@ -20,8 +21,6 @@ func enter():
 	
 	#print("DANO")
 	parent.health -= parent.atacker.baseDamage 
-	if parent.health < 0: 
-		parent.health = 0
 	parent.healthPercentage = float(parent.health)/float(parent.maxHealth)
 	gameManager.UIUpdate()
 	if parent.angle.dot(parent.global_position.direction_to(parent.atacker.global_position)) > 0:
@@ -40,6 +39,8 @@ func exit():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func processPhysics(delta):
+	if parent.health < 0: 
+		return dieState
 	
 	if(!parent.actionLock):
 		if Input.is_action_pressed("defend"):

@@ -14,8 +14,8 @@ func _ready():
 func _process(delta):
 	if minutes < gameManager.minutes:
 		minutes = gameManager.minutes
-		enemieTargetNumbers[0] += minutes*2.1
-		enemieTargetNumbers[1] += minutes*1.7
+		enemieTargetNumbers[0] += minutes*2.8
+		enemieTargetNumbers[1] += minutes*1.5
 		enemieTargetNumbers[2] += minutes*1.5
 
 func getRunDirection():

@@ -13,9 +13,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func on_body_entered(body):
 	#print("MANAGER: ", gameManager.player)
-	if body == gameManager.player:
-		gameManager.player.heal(10)
-		gameManager.player.heartCollected.emit(10)
-		queue_free()
+	#if body == gameManager.player:
+		#gameManager.player.heal(10)
+		#gameManager.player.heartCollected.emit(10)
+		#queue_free()
+	body.heal(10)
+	queue_free()
 	
-	pass

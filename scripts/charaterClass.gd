@@ -86,6 +86,11 @@ func takeDamage(foe):
 	atacker = foe
 	stateM.changeState(get_node("damage"))
 
+func heal(amount):
+	health += amount
+	if health > maxHealth:
+		health = maxHealth
+
 func die():
 	if randi_range(1,3) == 1:
 		var heartScene = heart 

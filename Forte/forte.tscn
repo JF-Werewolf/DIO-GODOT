@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://xgplja70rsxc"]
+[gd_scene load_steps=147 format=3 uid="uid://xgplja70rsxc"]
 
 [ext_resource type="Texture2D" uid="uid://brxonkpb36yd" path="res://sprites/Forte_Walk.png" id="1_5yqfu"]
 [ext_resource type="Script" path="res://Forte/forte.gd" id="1_yiv5a"]
@@ -21,8 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://bbax8erh4eox" path="res://sprites/Forte_Impact2.png" id="13_kacig"]
 [ext_resource type="Script" path="res://Forte/jump.gd" id="14_0ygf4"]
 [ext_resource type="PackedScene" uid="uid://bv83l76fdwhiw" path="res://Objects/life_bar.tscn" id="14_2sgeo"]
+[ext_resource type="Texture2D" uid="uid://n0lxxbmowuar" path="res://sprites/Forte_Die.png" id="15_4smpp"]
 [ext_resource type="Script" path="res://Forte/shield.gd" id="19_dwst3"]
 [ext_resource type="Script" path="res://Forte/damage.gd" id="20_qhqx2"]
+[ext_resource type="Script" path="res://Forte/die.gd" id="24_h20pk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxka5"]
 radius = 18.0
@@ -207,6 +209,18 @@ tracks/14/path = NodePath("impact2Sprite:frame")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("dieSprite:frame")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -2121,6 +2135,142 @@ tracks/0/keys = {
 "values": [119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134]
 }
 
+[sub_resource type="Animation" id="Animation_xjoq8"]
+resource_name = "die_!"
+length = 2.16667
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dieSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 38]
+}
+
+[sub_resource type="Animation" id="Animation_uuoeb"]
+resource_name = "die_2"
+length = 2.16667
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dieSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [39, 77]
+}
+
+[sub_resource type="Animation" id="Animation_vywdu"]
+resource_name = "die_3"
+length = 2.16667
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dieSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [78, 116]
+}
+
+[sub_resource type="Animation" id="Animation_l1j54"]
+resource_name = "die_4"
+length = 2.16667
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dieSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [117, 155]
+}
+
+[sub_resource type="Animation" id="Animation_d6lsh"]
+resource_name = "die_5"
+length = 2.16667
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dieSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [156, 194]
+}
+
+[sub_resource type="Animation" id="Animation_68ntp"]
+resource_name = "die_6"
+length = 2.16667
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dieSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [195, 233]
+}
+
+[sub_resource type="Animation" id="Animation_nvm08"]
+resource_name = "die_7"
+length = 2.16667
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dieSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [234, 272]
+}
+
+[sub_resource type="Animation" id="Animation_ekkt3"]
+resource_name = "die_8"
+length = 2.16667
+step = 0.0555556
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dieSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [273, 311]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v1aiw"]
 _data = {
 "RESET": SubResource("Animation_fco46"),
@@ -2168,6 +2318,14 @@ _data = {
 "atack6_6": SubResource("Animation_24ej5"),
 "atack6_7": SubResource("Animation_66lyv"),
 "atack6_8": SubResource("Animation_itdne"),
+"die_1": SubResource("Animation_xjoq8"),
+"die_2": SubResource("Animation_uuoeb"),
+"die_3": SubResource("Animation_vywdu"),
+"die_4": SubResource("Animation_l1j54"),
+"die_5": SubResource("Animation_d6lsh"),
+"die_6": SubResource("Animation_68ntp"),
+"die_7": SubResource("Animation_nvm08"),
+"die_8": SubResource("Animation_ekkt3"),
 "impact1_1": SubResource("Animation_054li"),
 "impact1_2": SubResource("Animation_xj10c"),
 "impact1_3": SubResource("Animation_pcs45"),
@@ -2475,12 +2633,14 @@ shape = SubResource("CircleShape2D_526kf")
 
 [node name="standSprite" type="Sprite2D" parent="."]
 visible = false
+y_sort_enabled = true
 position = Vector2(0, -42)
 texture = ExtResource("2_b407s")
 hframes = 8
 
 [node name="walkSprite" type="Sprite2D" parent="."]
 visible = false
+y_sort_enabled = true
 position = Vector2(0, -42)
 texture = ExtResource("1_5yqfu")
 hframes = 17
@@ -2488,6 +2648,7 @@ vframes = 8
 
 [node name="runSprite" type="Sprite2D" parent="."]
 visible = false
+y_sort_enabled = true
 position = Vector2(0, -42)
 texture = ExtResource("3_1iqbi")
 hframes = 11
@@ -2495,6 +2656,7 @@ vframes = 8
 
 [node name="jumpSprite" type="Sprite2D" parent="."]
 visible = false
+y_sort_enabled = true
 position = Vector2(0, -42)
 texture = ExtResource("5_5qx3d")
 hframes = 13
@@ -2502,6 +2664,7 @@ vframes = 8
 
 [node name="atack1Sprite" type="Sprite2D" parent="."]
 visible = false
+y_sort_enabled = true
 position = Vector2(0, -42)
 texture = ExtResource("6_l36mp")
 hframes = 35
@@ -2509,6 +2672,7 @@ vframes = 8
 
 [node name="atack2Sprite" type="Sprite2D" parent="."]
 visible = false
+z_index = 1
 position = Vector2(0, -40)
 texture = ExtResource("7_3wit3")
 hframes = 15
@@ -2554,6 +2718,13 @@ visible = false
 position = Vector2(0, -42)
 texture = ExtResource("13_kacig")
 hframes = 10
+vframes = 8
+
+[node name="dieSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -22)
+texture = ExtResource("15_4smpp")
+hframes = 39
 vframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -2627,7 +2798,7 @@ jumpState = NodePath("../jump")
 damageState = NodePath("../damage")
 animationName = "shield1"
 
-[node name="damage" type="Node" parent="stateMachine" node_paths=PackedStringArray("idleState", "walkState", "runState", "jumpState", "atackState", "shieldState")]
+[node name="damage" type="Node" parent="stateMachine" node_paths=PackedStringArray("idleState", "walkState", "runState", "jumpState", "atackState", "shieldState", "dieState")]
 script = ExtResource("20_qhqx2")
 idleState = NodePath("../idle")
 walkState = NodePath("../walk")
@@ -2635,6 +2806,11 @@ runState = NodePath("../run")
 jumpState = NodePath("../jump")
 atackState = NodePath("../atack")
 shieldState = NodePath("../shield")
+dieState = NodePath("../die")
 animationName = "impact1"
+
+[node name="die" type="Node" parent="stateMachine"]
+script = ExtResource("24_h20pk")
+animationName = "die"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

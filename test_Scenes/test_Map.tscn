@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://hsio42uq47jf"]
+[gd_scene load_steps=9 format=3 uid="uid://hsio42uq47jf"]
 
 [ext_resource type="TileSet" uid="uid://x6yoft7652ap" path="res://tileSetTest.tres" id="1_3oc2w"]
 [ext_resource type="PackedScene" uid="uid://q7n7lmeh2lu3" path="res://UI/UI.tscn" id="1_cakjc"]
 [ext_resource type="Script" path="res://gameManager.gd" id="1_lcjhq"]
-[ext_resource type="PackedScene" uid="uid://bsm4g26sq0eea" path="res://Magro/magro.tscn" id="3_wuxba"]
 [ext_resource type="PackedScene" uid="uid://xgplja70rsxc" path="res://Forte/forte.tscn" id="5_u70bv"]
 [ext_resource type="PackedScene" uid="uid://belda4susm84o" path="res://Objects/heart.tscn" id="6_nnyom"]
 [ext_resource type="Script" path="res://test_Scenes/teste.gd" id="7_hvdal"]
@@ -25,7 +24,6 @@ y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_51xvj")
 
 [node name="TileMap" type="TileMap" parent="NavigationRegion2D"]
-z_as_relative = false
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("1_3oc2w")
@@ -56,9 +54,6 @@ position = Vector2(310, 792)
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(146, 429)
 script = ExtResource("7_hvdal")
-
-[node name="magro" parent="." instance=ExtResource("3_wuxba")]
-position = Vector2(239, 295)
 
 [node name="mobSpawner" parent="." instance=ExtResource("9_58nj4")]
 position = Vector2(-340, 887)

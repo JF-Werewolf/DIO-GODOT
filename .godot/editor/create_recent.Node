@@ -1,11 +1,11 @@
+Sprite2D
+Node
 Panel
 Label
 Node2D
-Node
 Timer
 CollisionShape2D
 Area2D
-Sprite2D
 TextureRect
 ProgressBar
 CanvasLayer
