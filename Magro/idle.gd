@@ -26,8 +26,8 @@ func enter():
 	#print("Entering action: ",action)
 	parent.Speed = parent.RunSpeed
 	parent.angle = Vector2(1,0).rotated((parent.ActionDir + 1) * 0.785398)
-	if parent.stateM.previousState == atackState:
-		newAction()
+	
+	newAction()
 	#print("ACTION DIR START: ", get_parent().ActionDir)
 	#print(get_parent())
 	super()
@@ -144,7 +144,7 @@ func processPhysics(delta):
 		#newDir = parent.getAnimDir(parent.angle)
 		
 		
-		if((positionTarget - parent.global_position).length() < 10):
+		if((positionTarget - parent.global_position).length() < 20):
 			action = 0
 			
 		#checkAtack()
@@ -154,7 +154,7 @@ func processPhysics(delta):
 		parent.playAnimation(animationName, carryAnimation)
 		
 	
-	parent.velocity = lerp(parent.velocity, parent.angle*targetSpeed, parent.lerpFactor /3)
+	parent.velocity = lerp(parent.velocity, parent.angle*targetSpeed, parent.lerpFactor /3) * (delta*60)
 	parent.move_and_slide()
 	
 	

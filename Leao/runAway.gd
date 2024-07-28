@@ -25,13 +25,13 @@ func get_target():
 		target = runDirection
 		#print("target: ", runTarget)
 		
-	positionTarget = target.rotated(randf_range(-0.3, 0.3))
-	positionTarget *= 200
+		positionTarget = target.rotated(randf_range(-0.3, 0.3))
+		positionTarget *= 200
+				
+		positionTarget += parent.global_position
 			
-	positionTarget += parent.global_position
-		
-	positionTarget = NavigationServer2D.map_get_closest_point(get_parent().navRID, positionTarget)
-	parent.navigationTarget = positionTarget
+		positionTarget = NavigationServer2D.map_get_closest_point(get_parent().navRID, positionTarget)
+		parent.navigationTarget = positionTarget
 	
 	#animationName = "stand"
 	#get_parent().playAnimation(animationName, true)
@@ -48,14 +48,14 @@ func processPhysics(delta):
 	if parent.targetArea.get_overlapping_bodies().size() <=1:
 		return idleState
 	
-	if((positionTarget - parent.global_position).length() < 10):
+	if((positionTarget - parent.global_position).length() < 20):
 		get_target()
 	
 	if parent.getAnimDir(parent.angle) != parent.ActionDir:
 		parent.ActionDir = parent.getAnimDir(parent.angle) 
 		parent.playAnimation(animationName, carryAnimation)
 		
-	parent.velocity = lerp(parent.velocity,parent.angle*targetSpeed , parent.lerpFactor /3)
+	parent.velocity = lerp(parent.velocity,parent.angle*targetSpeed , parent.lerpFactor /3) * (delta*60) 
 	parent.move_and_slide()
 		
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bfoey0m33pm0a"]
+[gd_scene load_steps=66 format=3 uid="uid://bfoey0m33pm0a"]
 
 [ext_resource type="Script" path="res://Fat/fat.gd" id="1_c3d82"]
 [ext_resource type="Texture2D" uid="uid://dk5oo7j1by55w" path="res://sprites/Fat_Stand.png" id="2_jflnu"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Fat/damage.gd" id="10_6a0nl"]
 [ext_resource type="Script" path="res://Fat/die.gd" id="11_0eeng"]
 [ext_resource type="PackedScene" uid="uid://bv83l76fdwhiw" path="res://Objects/life_bar.tscn" id="12_5mh1d"]
+[ext_resource type="Script" path="res://Fat/goto.gd" id="14_esf31"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b2hrc"]
 radius = 12.0
@@ -902,7 +903,6 @@ heart = ExtResource("2_jgm2v")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
 target_desired_distance = 15.0
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="Navigation"]
 wait_time = 0.25
@@ -915,7 +915,6 @@ shape = SubResource("CircleShape2D_b2hrc")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="weaponArea"]
-scale = Vector2(1, 0.8)
 shape = SubResource("CircleShape2D_n4wi6")
 debug_color = Color(0, 0.6, 0.701961, 0.101961)
 
@@ -928,7 +927,6 @@ shape = SubResource("CircleShape2D_mwxg1")
 debug_color = Color(0, 0.6, 0.701961, 0.0392157)
 
 [node name="standSprite" type="Sprite2D" parent="."]
-visible = false
 y_sort_enabled = true
 position = Vector2(0, -47)
 texture = ExtResource("2_jflnu")
@@ -977,7 +975,7 @@ libraries = {
 
 [node name="stateMachine" type="Node" parent="." node_paths=PackedStringArray("startingState")]
 script = ExtResource("6_eq200")
-startingState = NodePath("idle")
+startingState = NodePath("goto")
 
 [node name="idle" type="Node" parent="stateMachine" node_paths=PackedStringArray("atackState", "runAwayState")]
 script = ExtResource("7_7373v")
@@ -1009,6 +1007,12 @@ animationName = "stand"
 script = ExtResource("11_0eeng")
 animationName = "die1"
 
+[node name="goto" type="Node" parent="stateMachine" node_paths=PackedStringArray("atackState", "idleState")]
+script = ExtResource("14_esf31")
+atackState = NodePath("../atack")
+idleState = NodePath("../idle")
+animationName = "walk"
+
 [node name="weaponArea1Testes" type="Area2D" parent="."]
 visible = false
 position = Vector2(58, 0)
@@ -1030,16 +1034,19 @@ color = Color(0.0941176, 0.72549, 0.305882, 0.568627)
 [node name="lifeBar" parent="." instance=ExtResource("12_5mh1d")]
 
 [node name="scape" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(50, 0, 0, 0)
 width = 5.0
 default_color = Color(0.816406, 0.146927, 0.149826, 1)
 
 [node name="pair0" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(0, 0, 0, 0)
 width = 2.0
 default_color = Color(0.200946, 0.539349, 0.879814, 1)
 
 [node name="pair1" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(0, 0, 0, 0)
 width = 2.0
 default_color = Color(0.186079, 0.117412, 0.68905, 1)

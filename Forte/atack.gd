@@ -117,7 +117,7 @@ func processPhysics(delta):
 	if newDir:
 		parent.angle = newDir
 		
-	parent.velocity = lerp(parent.velocity, newDir*parent.Speed, parent.lerpFactor )
+	parent.velocity = lerp(parent.velocity, newDir*parent.Speed, parent.lerpFactor ) * (delta*60)
 	parent.move_and_slide() 
 	
 	if parent.actionFinished:

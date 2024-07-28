@@ -20,6 +20,8 @@ func enter():
 	
 	#print("DANO")
 	parent.health -= parent.atacker.baseDamage 
+	if parent.health < 0: 
+		parent.health = 0
 	parent.healthPercentage = float(parent.health)/float(parent.maxHealth)
 	gameManager.UIUpdate()
 	if parent.angle.dot(parent.global_position.direction_to(parent.atacker.global_position)) > 0:
@@ -60,7 +62,7 @@ func processPhysics(delta):
 		if Input.is_action_just_pressed("jump"):
 			return jumpState
 		
-	parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor * 1.8)
+	parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor * 1.8) * (delta*60)
 	
 	parent.move_and_slide() 
 	

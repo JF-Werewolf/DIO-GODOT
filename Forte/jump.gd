@@ -39,9 +39,9 @@ func processPhysics(delta):
 		
 	if(NewDir):
 		#print("LERP TEST -- CURRENT: ", get_parent().velocity, "  TARGET: ", NewDir* get_parent().Speed, "  LERP: ", get_parent().lerpFactor)
-		parent.velocity = lerp(parent.velocity, parent.angle * parent.Speed, parent.lerpFactor)
+		parent.velocity = lerp(parent.velocity, parent.angle * parent.Speed, parent.lerpFactor) * (delta*60)
 		
-	else: parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor * 0.8)
+	else: parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor * 0.8) * (delta*60)
 	
 	if Input.is_action_just_pressed("atack"):
 		atackState.animationName = "atack2"

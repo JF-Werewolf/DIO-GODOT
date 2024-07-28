@@ -2471,7 +2471,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="weaponArea"]
-scale = Vector2(1, 0.8)
 shape = SubResource("CircleShape2D_526kf")
 
 [node name="standSprite" type="Sprite2D" parent="."]

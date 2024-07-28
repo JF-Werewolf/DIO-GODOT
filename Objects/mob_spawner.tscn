@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj5gpgd121rfq"]
+
+[ext_resource type="Script" path="res://mobSpawner.gd" id="1_qtvla"]
+[ext_resource type="PackedScene" uid="uid://bsm4g26sq0eea" path="res://Magro/magro.tscn" id="2_ctn6h"]
+[ext_resource type="PackedScene" uid="uid://c5m8hpyrquk3r" path="res://Leao/leao.tscn" id="3_g3ewg"]
+[ext_resource type="PackedScene" uid="uid://bfoey0m33pm0a" path="res://Fat/fat.tscn" id="4_tj7ry"]
+
+[node name="mobSpawner" type="Node2D"]
+script = ExtResource("1_qtvla")
+enemies = Array[PackedScene]([ExtResource("2_ctn6h"), ExtResource("3_g3ewg"), ExtResource("4_tj7ry")])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

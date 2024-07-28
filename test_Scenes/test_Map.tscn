@@ -1,21 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://hsio42uq47jf"]
+[gd_scene load_steps=10 format=3 uid="uid://hsio42uq47jf"]
 
 [ext_resource type="TileSet" uid="uid://x6yoft7652ap" path="res://tileSetTest.tres" id="1_3oc2w"]
 [ext_resource type="PackedScene" uid="uid://q7n7lmeh2lu3" path="res://UI/UI.tscn" id="1_cakjc"]
+[ext_resource type="Script" path="res://gameManager.gd" id="1_lcjhq"]
 [ext_resource type="PackedScene" uid="uid://bsm4g26sq0eea" path="res://Magro/magro.tscn" id="3_wuxba"]
-[ext_resource type="PackedScene" uid="uid://c5m8hpyrquk3r" path="res://Leao/leao.tscn" id="5_3ry0g"]
 [ext_resource type="PackedScene" uid="uid://xgplja70rsxc" path="res://Forte/forte.tscn" id="5_u70bv"]
 [ext_resource type="PackedScene" uid="uid://belda4susm84o" path="res://Objects/heart.tscn" id="6_nnyom"]
-[ext_resource type="PackedScene" uid="uid://bfoey0m33pm0a" path="res://Fat/fat.tscn" id="6_sieih"]
+[ext_resource type="Script" path="res://test_Scenes/teste.gd" id="7_hvdal"]
+[ext_resource type="PackedScene" uid="uid://cj5gpgd121rfq" path="res://Objects/mob_spawner.tscn" id="9_58nj4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_51xvj"]
-vertices = PackedVector2Array(434, 343, 602, 343, 750, 508, 508, 508, 158, 491, 158, 434, 232, 656, 138, 656, -64, 639, 138, 602, 232, 602, 286, 639, 232, 713, 508, 639, 750, 639, 878, 952, 158, 824, 158, 767, -508, 952, 64, 824, 380, 639, 878, 47, 602, 249, -508, 47, 434, 249, 138, 713, 64, 767, 232, 545, 286, 582, 84, 713, -10, 713, 84, 602, -10, 602, -64, 582, -10, 545, -138, 491, -138, 360, 64, 434, 64, 491, 380, 582, 138, 545, 84, 545, -158, 582, -306, 491, 84, 656, -10, 656, -306, 360, -158, 639)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16, 17), PackedInt32Array(16, 15, 18, 19), PackedInt32Array(20, 13, 12), PackedInt32Array(21, 15, 14, 2), PackedInt32Array(11, 20, 12, 6), PackedInt32Array(21, 2, 1, 22), PackedInt32Array(23, 21, 22, 24), PackedInt32Array(25, 12, 17, 26), PackedInt32Array(10, 27, 28, 11), PackedInt32Array(25, 26, 29, 7), PackedInt32Array(30, 29, 26), PackedInt32Array(31, 9, 8), PackedInt32Array(32, 31, 8), PackedInt32Array(32, 8, 33, 34), PackedInt32Array(35, 36, 37, 38, 34, 33), PackedInt32Array(3, 13, 20, 39), PackedInt32Array(4, 3, 39, 28, 27), PackedInt32Array(4, 27, 40, 38), PackedInt32Array(40, 9, 31, 41), PackedInt32Array(38, 40, 41), PackedInt32Array(38, 41, 34), PackedInt32Array(35, 33, 42, 43), PackedInt32Array(7, 29, 44), PackedInt32Array(8, 7, 44), PackedInt32Array(8, 44, 45), PackedInt32Array(23, 24, 0, 5, 37, 36), PackedInt32Array(23, 36, 46), PackedInt32Array(18, 23, 46, 43), PackedInt32Array(18, 43, 42, 47), PackedInt32Array(19, 18, 47, 8, 30), PackedInt32Array(8, 45, 30), PackedInt32Array(19, 30, 26)])
+vertices = PackedVector2Array(431, 346, 605, 346, 753, 505, 505, 505, 161, 494, 161, 431, 235, 653, 135, 653, -61, 642, 135, 605, 235, 605, 283, 642, 235, 716, 505, 642, 753, 642, 875, 949, 161, 827, 161, 764, -505, 949, 61, 827, 383, 642, 875, 50, 605, 246, -505, 50, 431, 246, 135, 716, 61, 764, 235, 542, 283, 579, 87, 716, -13, 716, 87, 605, -13, 605, -61, 579, -13, 542, 61, 431, 61, 494, -135, 494, -135, 357, 383, 579, 135, 542, 87, 542, 87, 653, -13, 653, -309, 357, -309, 494, -161, 642, -161, 579)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16, 17), PackedInt32Array(16, 15, 18, 19), PackedInt32Array(20, 13, 12), PackedInt32Array(21, 15, 14, 2), PackedInt32Array(11, 20, 12, 6), PackedInt32Array(21, 2, 1, 22), PackedInt32Array(23, 21, 22, 24), PackedInt32Array(25, 12, 17, 26), PackedInt32Array(10, 27, 28, 11), PackedInt32Array(25, 26, 29, 7), PackedInt32Array(30, 29, 26, 18), PackedInt32Array(31, 9, 8), PackedInt32Array(32, 31, 8), PackedInt32Array(32, 8, 33, 34), PackedInt32Array(35, 36, 34, 37, 38), PackedInt32Array(3, 13, 20, 39), PackedInt32Array(4, 3, 39, 27), PackedInt32Array(40, 9, 31, 41), PackedInt32Array(7, 29, 42), PackedInt32Array(8, 7, 42), PackedInt32Array(8, 42, 43), PackedInt32Array(23, 24, 0, 5, 35, 38), PackedInt32Array(23, 38, 44), PackedInt32Array(18, 23, 44, 45), PackedInt32Array(26, 19, 18), PackedInt32Array(8, 43, 30, 18, 46), PackedInt32Array(46, 18, 45, 47), PackedInt32Array(33, 47, 45, 37, 34), PackedInt32Array(41, 34, 36, 4), PackedInt32Array(40, 41, 4), PackedInt32Array(27, 40, 4), PackedInt32Array(27, 39, 28)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-518, 37, 888, 37, 888, 962, -518, 962)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 13.0
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_lcjhq")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 y_sort_enabled = true
@@ -41,20 +44,30 @@ layer_2/tile_data = PackedInt32Array(-262150, 2, 0, -196614, 2, 1, -131078, 2, 2
 [node name="GameUI" parent="." instance=ExtResource("1_cakjc")]
 
 [node name="forte" parent="." instance=ExtResource("5_u70bv")]
-position = Vector2(132, 174)
+position = Vector2(453, 645)
 motion_mode = 1
 wall_min_slide_angle = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="forte"]
 
-[node name="magro" parent="." instance=ExtResource("3_wuxba")]
-position = Vector2(-229, 128)
-
-[node name="leao" parent="." instance=ExtResource("5_3ry0g")]
-position = Vector2(-28, 489)
-
-[node name="magro2" parent="." instance=ExtResource("6_sieih")]
-position = Vector2(452, 556)
-
 [node name="heart" parent="." instance=ExtResource("6_nnyom")]
 position = Vector2(310, 792)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(146, 429)
+script = ExtResource("7_hvdal")
+
+[node name="magro" parent="." instance=ExtResource("3_wuxba")]
+position = Vector2(239, 295)
+
+[node name="mobSpawner" parent="." instance=ExtResource("9_58nj4")]
+position = Vector2(-340, 887)
+
+[node name="mobSpawner2" parent="." instance=ExtResource("9_58nj4")]
+position = Vector2(702, 896)
+
+[node name="mobSpawner3" parent="." instance=ExtResource("9_58nj4")]
+position = Vector2(697, 65)
+
+[node name="mobSpawner4" parent="." instance=ExtResource("9_58nj4")]
+position = Vector2(-331, 63)

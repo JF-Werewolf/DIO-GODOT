@@ -42,7 +42,7 @@ func processPhysics(delta):
 	if Input.is_action_pressed("defend"):
 		return shieldState
 		
-	parent.velocity = parent.angle * parent.Speed
+	parent.velocity = parent.angle * parent.Speed * (delta*60)
 	parent.lerpFactor = 0.20
 	
 	

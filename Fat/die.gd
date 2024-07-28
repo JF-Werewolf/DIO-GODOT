@@ -7,9 +7,12 @@ var count = 0
 
 func enter():
 	#print("he ded")
+	if parent.atacker == gameManager.player:
+		gameManager.playerScore += 12
 	parent.get_node("body").queue_free()
 	parent.playAnimation(animationName, false)
 	time = Time.get_unix_time_from_system()
+	gameManager.enemieNumbers[2] -= 1
 	super()
 	
 func exit():

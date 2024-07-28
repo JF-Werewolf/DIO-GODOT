@@ -89,7 +89,7 @@ func processPhysics(delta):
 		
 		
 		
-	parent.velocity = lerp(parent.velocity, targetSpeed, parent.lerpFactor /3)
+	parent.velocity = lerp(parent.velocity, targetSpeed, parent.lerpFactor /3) * (delta*60)
 	parent.move_and_slide()
 	
 	if parent.getAnimDir(parent.angle) != parent.ActionDir:

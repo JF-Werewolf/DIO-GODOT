@@ -100,7 +100,7 @@ func scapeRoute():
 	var angle2
 	if targetArea.get_overlapping_bodies().size() > 1:
 		var bodies = targetArea.get_overlapping_bodies()
-		pointEnemies(bodies)
+		#pointEnemies(bodies)
 		bodies.erase(self)
 		#print(bodies)
 		bodies = sortByAngle(bodies)

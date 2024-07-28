@@ -62,7 +62,7 @@ func processPhysics(delta):
 		#if Input.is_action_pressed("defend"):
 			#return shieldState
 		
-	parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor/3)
+	parent.velocity = lerp(parent.velocity, Vector2(0,0), parent.lerpFactor/3) * (delta*60)
 	
 	parent.move_and_slide() 
 	
