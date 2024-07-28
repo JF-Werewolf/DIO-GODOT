@@ -1,7 +1,8 @@
-[gd_scene load_steps=136 format=3 uid="uid://xgplja70rsxc"]
+[gd_scene load_steps=137 format=3 uid="uid://xgplja70rsxc"]
 
 [ext_resource type="Texture2D" uid="uid://brxonkpb36yd" path="res://sprites/Forte_Walk.png" id="1_5yqfu"]
 [ext_resource type="Script" path="res://Forte/forte.gd" id="1_yiv5a"]
+[ext_resource type="PackedScene" uid="uid://belda4susm84o" path="res://Objects/heart.tscn" id="2_a0qyc"]
 [ext_resource type="Texture2D" uid="uid://c2yqpkensgafs" path="res://sprites/Forte_Stand.png" id="2_b407s"]
 [ext_resource type="Texture2D" uid="uid://d3wqi470fmkjt" path="res://sprites/Forte_Run.png" id="3_1iqbi"]
 [ext_resource type="Texture2D" uid="uid://dbaa47vvbxi40" path="res://sprites/Forte_Atack1.png" id="5_3l5yu"]
@@ -2459,6 +2460,7 @@ y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_yiv5a")
+heart = ExtResource("2_a0qyc")
 
 [node name="body" type="CollisionShape2D" parent="."]
 use_parent_material = true

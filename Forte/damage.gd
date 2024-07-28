@@ -21,6 +21,7 @@ func enter():
 	#print("DANO")
 	parent.health -= parent.atacker.baseDamage 
 	parent.healthPercentage = float(parent.health)/float(parent.maxHealth)
+	gameManager.UIUpdate()
 	if parent.angle.dot(parent.global_position.direction_to(parent.atacker.global_position)) > 0:
 		animationName = "impact1"
 	else:

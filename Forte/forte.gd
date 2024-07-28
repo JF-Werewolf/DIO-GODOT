@@ -51,7 +51,7 @@ func _ready():
 				#lol.insert(x, lol.pop_at(y))
 				#
 	#print("DEPOIS: ", lol)
-		
+	gameManager.player = self
 	atackRange = 0.3
 	maxHealth = 50
 	health = 50
@@ -60,6 +60,12 @@ func _ready():
 	strength = 20
 	super()
 	
+func heal(amount):
+	health += amount
+	if health > maxHealth:
+		health = maxHealth
+	gameManager.UIUpdate()
+
 func _physics_process(delta):
 	super(delta)
 
@@ -68,3 +74,6 @@ func _on_animation_player_animation_finished(anim_name):
 	
 func checkAtack():
 	get_node("atack").checkAtack()
+
+signal heartCollected(value: int)
+	

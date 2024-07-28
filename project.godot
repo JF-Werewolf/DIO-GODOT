@@ -15,6 +15,10 @@ run/main_scene="res://test_Scenes/test_Map.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+gameManager="*res://gameManager.gd"
+
 [display]
 
 window/size/viewport_width=800

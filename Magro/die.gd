@@ -23,4 +23,4 @@ func processPhysics(delta):
 		timer = 0.1
 		parent.get_node(animationName + "Sprite").visible = !parent.get_node(animationName + "Sprite").visible
 		if count > 6:
-			parent.queue_free()
+			parent.die()

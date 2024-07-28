@@ -23,6 +23,7 @@ var angle = Vector2(0,0)
 
 @export var previousAction = "stand"
 #@export var startingAction = "stand" 
+@export var heart : PackedScene 
 
 @onready var stateM= $stateMachine
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer 
@@ -84,6 +85,14 @@ func _physics_process(delta):
 func takeDamage(foe):
 	atacker = foe
 	stateM.changeState(get_node("damage"))
+
+func die():
+	if randi_range(1,3) == 1:
+		var heartScene = heart 
+		var newHeart = heartScene.instantiate()
+		newHeart.global_position = global_position
+		get_parent().add_child(newHeart)
+	queue_free()
 
 func _on_animation_player_animation_finished(_anim_name):
 	actionFinished = true 

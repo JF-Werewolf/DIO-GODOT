@@ -1,7 +1,8 @@
-[gd_scene load_steps=54 format=3 uid="uid://bsm4g26sq0eea"]
+[gd_scene load_steps=55 format=3 uid="uid://bsm4g26sq0eea"]
 
 [ext_resource type="Texture2D" uid="uid://o4e61hxjrrx4" path="res://sprites/Magro_Stand.png" id="1_70dy4"]
 [ext_resource type="Script" path="res://Magro/magro.gd" id="1_klhdo"]
+[ext_resource type="PackedScene" uid="uid://belda4susm84o" path="res://Objects/heart.tscn" id="2_1fbwd"]
 [ext_resource type="Texture2D" uid="uid://8ild3xqeknnt" path="res://sprites/Magro_Run.png" id="2_q2jxn"]
 [ext_resource type="Texture2D" uid="uid://cnp4658u6bc7c" path="res://sprites/Magro_Impact1.png" id="4_d4p3n"]
 [ext_resource type="Texture2D" uid="uid://bl6h54otha40y" path="res://sprites/Magro_Die1 .png" id="5_ba2ho"]
@@ -918,6 +919,7 @@ collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0174533
 script = ExtResource("1_klhdo")
+heart = ExtResource("2_1fbwd")
 
 [node name="Navigation" type="Node2D" parent="."]
 
