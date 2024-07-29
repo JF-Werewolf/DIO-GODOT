@@ -24,7 +24,7 @@ func startGame():
 	UI = uiScene
 	
 	for N in get_parent().get_node("World").get_children():
-		if N is Character:
+		if N is Character or N is Heart:
 			N.queue_free()
 			
 	
