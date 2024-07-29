@@ -1,10 +1,9 @@
-res://test_Scenes/test_Map.tscn
+res://UI/menuUI.tscn
 res://Forte/forte.gd
 res://Forte/jump.gd
 res://tileSetTest.tres
-res://gameManager.gd
+res://test_Scenes/test_Map.tscn
 res://UI/GameUI.tscn
 res://UI/game_over_ui.tscn
-res://UI/menuUI.tscn
 res://Forte/forte.tscn
 res://Leao/leao.tscn

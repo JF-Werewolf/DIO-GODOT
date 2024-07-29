@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Aerus Quest"
+config/name="Aureus Quest"
 run/main_scene="res://test_Scenes/test_Map.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
