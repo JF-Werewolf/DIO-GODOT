@@ -7,5 +7,3 @@ res://UI/game_over_ui.tscn
 res://UI/menuUI.tscn
 res://Forte/forte.tscn
 res://Leao/leao.tscn
-res://Leao/die.gd
-res://gameManager.gd
