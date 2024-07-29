@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://buswwyg4jf4d6"]
+
+[ext_resource type="Texture2D" uid="uid://dyomi8sgh5bdo" path="res://sprites/scroll.png" id="1_8ga8p"]
+[ext_resource type="Script" path="res://UI/menuUI.gd" id="1_f0lmy"]
+[ext_resource type="Texture2D" uid="uid://bjyhv5f8fswu1" path="res://sprites/coinsmall.png" id="3_ngf20"]
+[ext_resource type="FontFile" uid="uid://bs7etbijc20o6" path="res://times.ttf" id="3_vyl7t"]
+[ext_resource type="Texture2D" uid="uid://bq4278jyotakm" path="res://sprites/manual_atual.png" id="4_mgu60"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ho3ys"]
+texture = ExtResource("1_8ga8p")
+texture_margin_left = 27.0
+texture_margin_top = 24.0
+texture_margin_right = 32.0
+texture_margin_bottom = 23.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4.75419, 0, 91.2458, 79)
+
+[node name="menuUI" type="CanvasLayer"]
+script = ExtResource("1_f0lmy")
+
+[node name="backGround" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.207843)
+
+[node name="titleNamePanel" type="Panel" parent="backGround"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -259.0
+offset_top = 21.0
+offset_right = 259.0
+offset_bottom = 134.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ho3ys")
+
+[node name="titleName" type="Label" parent="backGround/titleNamePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -24.5
+offset_right = 100.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vyl7t")
+theme_override_font_sizes/font_size = 50
+text = "AERUS           QUEST"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="backGround/titleNamePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ngf20")
+
+[node name="manuelPanel" type="Panel" parent="backGround"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -79.0
+offset_right = 274.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ho3ys")
+
+[node name="TextureRect" type="TextureRect" parent="backGround/manuelPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -96.5
+offset_right = 249.0
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mgu60")
+
+[node name="newGameButton" type="Panel" parent="backGround"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 98.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ho3ys")
+
+[node name="newGame" type="Label" parent="backGround/newGameButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -24.5
+offset_right = 100.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vyl7t")
+theme_override_font_sizes/font_size = 44
+text = "NEW GAME
+"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="backGround/newGameButton" to="." method="_on_new_game_button_mouse_entered"]
+[connection signal="mouse_exited" from="backGround/newGameButton" to="." method="_on_new_game_button_mouse_exited"]

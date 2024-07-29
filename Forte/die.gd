@@ -26,5 +26,6 @@ func processPhysics(delta):
 		timer = 0.1
 		parent.get_node(animationName + "Sprite").visible = !parent.get_node(animationName + "Sprite").visible
 		if count > 6:
+			parent.get_node("camera").reparent(get_parent().get_parent())
 			parent.die()
 			gameManager.endGame()

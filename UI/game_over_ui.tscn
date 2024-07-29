@@ -1,0 +1,190 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0awvpllkirja"]
+
+[ext_resource type="Script" path="res://UI/game_over_ui.gd" id="1_2tb4e"]
+[ext_resource type="Texture2D" uid="uid://dyomi8sgh5bdo" path="res://sprites/scroll.png" id="1_kbbst"]
+[ext_resource type="Texture2D" uid="uid://bbiekjpmge7dk" path="res://sprites/thumblighter.png" id="2_wfcjc"]
+[ext_resource type="FontFile" uid="uid://bs7etbijc20o6" path="res://times.ttf" id="3_0q8fh"]
+[ext_resource type="Texture2D" uid="uid://bjyhv5f8fswu1" path="res://sprites/coinsmall.png" id="5_qdls7"]
+[ext_resource type="FontFile" uid="uid://bjkj8fb24elqd" path="res://timesbd.ttf" id="6_8ofhk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ho3ys"]
+texture = ExtResource("1_kbbst")
+texture_margin_left = 27.0
+texture_margin_top = 24.0
+texture_margin_right = 32.0
+texture_margin_bottom = 23.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4.75419, 0, 91.2458, 79)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sngtk"]
+texture = ExtResource("1_kbbst")
+texture_margin_left = 27.0
+texture_margin_top = 24.0
+texture_margin_right = 32.0
+texture_margin_bottom = 23.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(4.75419, 0, 91.2458, 79)
+
+[node name="gameOverUI" type="CanvasLayer"]
+script = ExtResource("1_2tb4e")
+
+[node name="backGround" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.207843)
+
+[node name="gameOverPanel" type="Panel" parent="backGround"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -152.0
+offset_right = 209.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ho3ys")
+
+[node name="TextureRect" type="TextureRect" parent="backGround/gameOverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -67.0
+offset_right = 38.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wfcjc")
+
+[node name="gameOver" type="Label" parent="backGround/gameOverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -24.5
+offset_right = 100.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0q8fh")
+theme_override_font_sizes/font_size = 50
+text = "GAME      OVER"
+horizontal_alignment = 1
+
+[node name="newGameButton" type="Panel" parent="backGround"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 69.0
+offset_right = 150.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ho3ys")
+
+[node name="newGame" type="Label" parent="backGround/newGameButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -24.5
+offset_right = 100.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0q8fh")
+theme_override_font_sizes/font_size = 44
+text = "NEW GAME
+"
+horizontal_alignment = 1
+
+[node name="scorePanel" type="Panel" parent="backGround"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -19.0
+offset_right = 145.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sngtk")
+
+[node name="TextureRect" type="TextureRect" parent="backGround/scorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -35.5
+offset_right = 34.0
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_qdls7")
+
+[node name="scoreLabel" type="Label" parent="backGround/scorePanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -18.5
+offset_right = -42.0
+offset_bottom = 30.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_8ofhk")
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
+
+[node name="score" type="Label" parent="backGround/scorePanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -11.0
+offset_right = 74.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0q8fh")
+theme_override_font_sizes/font_size = 25
+text = "SCORE"
+
+[connection signal="mouse_entered" from="backGround/newGameButton" to="." method="_on_new_game_button_mouse_entered"]
+[connection signal="mouse_exited" from="backGround/newGameButton" to="." method="_on_new_game_button_mouse_exited"]
