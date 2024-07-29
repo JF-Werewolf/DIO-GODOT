@@ -19,6 +19,10 @@ func _ready():
 	UI = uiScene
 
 func startGame():
+	playerScore = 0
+	for x in range(enemieNumbers.size()):
+		enemieNumbers[x]=0
+	
 	var uiScene = load("res://UI/GameUI.tscn").instantiate()
 	add_child(uiScene)
 	UI = uiScene
@@ -51,3 +55,4 @@ func endGame():
 	var uiScene = load("res://UI/game_over_ui.tscn").instantiate()
 	add_child(uiScene)
 	UI = uiScene
+	playingGame = false
