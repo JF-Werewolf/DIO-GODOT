@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Objects/heart.gd" id="1_y88dm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6j0iy"]
-radius = 12.0
+radius = 15.0
 
 [node name="heart" type="Node2D"]
 z_index = 1
@@ -13,7 +13,7 @@ script = ExtResource("1_y88dm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_vun2q")
 
 [node name="Area2D" type="Area2D" parent="."]

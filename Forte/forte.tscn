@@ -2634,30 +2634,29 @@ shape = SubResource("CircleShape2D_526kf")
 [node name="standSprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
-position = Vector2(0, -42)
 texture = ExtResource("2_b407s")
+offset = Vector2(0, -41)
 hframes = 8
 
 [node name="walkSprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
-position = Vector2(0, -42)
 texture = ExtResource("1_5yqfu")
+offset = Vector2(0, -41)
 hframes = 17
 vframes = 8
 
 [node name="runSprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
-position = Vector2(0, -42)
 texture = ExtResource("3_1iqbi")
+offset = Vector2(0, -41)
 hframes = 11
 vframes = 8
 
 [node name="jumpSprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
-position = Vector2(0, -42)
 texture = ExtResource("5_5qx3d")
 hframes = 13
 vframes = 8
@@ -2665,7 +2664,6 @@ vframes = 8
 [node name="atack1Sprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
-position = Vector2(0, -42)
 texture = ExtResource("6_l36mp")
 hframes = 35
 vframes = 8
@@ -2673,57 +2671,57 @@ vframes = 8
 [node name="atack2Sprite" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
-position = Vector2(0, -40)
 texture = ExtResource("7_3wit3")
+offset = Vector2(0, -41)
 hframes = 15
 vframes = 8
 
 [node name="atack3Sprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(1, -50)
 texture = ExtResource("8_tin6r")
+offset = Vector2(0, -41)
 hframes = 16
 vframes = 8
 
 [node name="atack4Sprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -41)
 texture = ExtResource("5_3l5yu")
+offset = Vector2(0, -41)
 hframes = 15
 vframes = 8
 
 [node name="atack6Sprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -39)
 texture = ExtResource("5_le2dd")
+offset = Vector2(0, -41)
 hframes = 26
 vframes = 8
 
 [node name="shield1Sprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -40)
 texture = ExtResource("9_jyglv")
+offset = Vector2(0, -41)
 hframes = 6
 vframes = 8
 
 [node name="impact1Sprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -37)
 texture = ExtResource("10_qf7q8")
+offset = Vector2(0, -41)
 hframes = 7
 vframes = 8
 
 [node name="impact2Sprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -42)
 texture = ExtResource("13_kacig")
+offset = Vector2(0, -41)
 hframes = 10
 vframes = 8
 
 [node name="dieSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -22)
 texture = ExtResource("15_4smpp")
+offset = Vector2(0, -24)
 hframes = 39
 vframes = 8
 
