@@ -11,6 +11,7 @@ func enter():
 		gameManager.playerScore += 8
 	if parent.get_node("body"):
 		parent.get_node("body").queue_free()
+	parent.get_node("lifeBar").queue_free()
 	parent.playAnimation(animationName, false)
 	time = Time.get_unix_time_from_system()
 	gameManager.enemieNumbers[1] -= 1
