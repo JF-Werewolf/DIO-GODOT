@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var enemies: Array[PackedScene]
+var minutes : int
+var enemieTargetNumbers : Array = [5,3,2]
 var positionTarget = Vector2.ZERO
 var targetRange = 400
 
@@ -8,12 +10,16 @@ var targetRange = 400
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#print("ENEMIE: ", enemies[1])
-	pass
+	minutes = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if minutes < gameManager.minutes:
+		minutes = gameManager.minutes
+		enemieTargetNumbers[0] += minutes*2.8
+		enemieTargetNumbers[1] += minutes*1.5
+		enemieTargetNumbers[2] += minutes*1.5
 
 func getRunDirection():
 	while true:
@@ -27,7 +33,7 @@ func getRunDirection():
 func _on_timer_timeout():
 	if gameManager.playingGame:
 		var i = randi_range(0,2)
-		if gameManager.enemieNumbers[i] < gameManager.enemieTargetNumbers[i]:
+		if gameManager.enemieNumbers[i] < enemieTargetNumbers[i]:
 			var enemieScene = enemies[i] 
 			var newEnemie = enemieScene.instantiate()
 			newEnemie.global_position = global_position

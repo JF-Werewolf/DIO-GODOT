@@ -1,8 +1,6 @@
 extends Node2D
 
-@onready var navRID : RID  = get_world_2d().get_navigation_map()
-
-var score = 0 
+@onready var navRID : RID  = get_world_2d().get_navigation_map()  
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

@@ -927,40 +927,39 @@ shape = SubResource("CircleShape2D_mwxg1")
 debug_color = Color(0, 0.6, 0.701961, 0.0392157)
 
 [node name="standSprite" type="Sprite2D" parent="."]
-visible = false
 y_sort_enabled = true
+position = Vector2(0, -47)
 texture = ExtResource("2_jflnu")
-offset = Vector2(0, -40)
 hframes = 8
 
 [node name="walkSprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
+position = Vector2(0, -40)
 texture = ExtResource("3_se0ip")
-offset = Vector2(0, -40)
 hframes = 15
 vframes = 8
 
 [node name="atack1Sprite" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(0, -43)
 texture = ExtResource("4_n2kbe")
-offset = Vector2(0, -40)
 hframes = 17
 vframes = 8
 
 [node name="impact1Sprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
+position = Vector2(0, -47)
 texture = ExtResource("4_q1muy")
-offset = Vector2(0, -40)
 hframes = 9
 vframes = 8
 
 [node name="die1Sprite" type="Sprite2D" parent="."]
 visible = false
 y_sort_enabled = true
+position = Vector2(0, -21)
 texture = ExtResource("5_02h5j")
-offset = Vector2(0, -18)
 hframes = 21
 vframes = 8
 

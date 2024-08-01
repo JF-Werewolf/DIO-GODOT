@@ -10,7 +10,6 @@ func enter():
 	if parent.atacker == gameManager.player:
 		gameManager.playerScore += 5
 	parent.get_node("body").queue_free()
-	parent.get_node("lifeBar").queue_free()
 	parent.playAnimation(animationName, false)
 	time = Time.get_unix_time_from_system()
 	gameManager.enemieNumbers[0] -= 1

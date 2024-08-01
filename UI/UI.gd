@@ -1,6 +1,10 @@
 extends CanvasLayer
 
 var lifePercentage = 1.0
+var timeElapsed = 0.0
+var minutes :int = 0
+
+var score = 0
 
 @onready var timeLabel : Label = $timeLabel
 @onready var scoreLabel : Label = $scorePanel/scoreLabel
@@ -12,8 +16,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	timeElapsed += delta
+	var timeInSeconds = floori(timeElapsed)
+	var seconds: int = timeInSeconds % 60
+	minutes =  timeInSeconds / 60
+	timeLabel.text = "%02d:%02d" % [minutes, seconds]
 	
-	timeLabel.text = "%02d:%02d" % [gameManager.minutes, gameManager.seconds]
+	gameManager.minutes = minutes
 	
 	scoreLabel.text = "%01d" % [gameManager.playerScore]
 	#lifeBar.value = int((float(gameManager.player.health) / float(gameManager.player.maxHealth)) * 100)

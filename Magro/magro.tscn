@@ -960,29 +960,28 @@ shape = SubResource("CircleShape2D_mwxg1")
 debug_color = Color(0, 0.6, 0.701961, 0.0392157)
 
 [node name="standSprite" type="Sprite2D" parent="."]
-visible = false
+position = Vector2(0, -47)
 texture = ExtResource("1_70dy4")
-offset = Vector2(0, -47)
 hframes = 8
 
 [node name="runSprite" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(0, -34)
 texture = ExtResource("2_q2jxn")
-offset = Vector2(0, -33)
 hframes = 11
 vframes = 8
 
 [node name="impact1Sprite" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(0, -47)
 texture = ExtResource("4_d4p3n")
-offset = Vector2(0, -46)
 hframes = 8
 vframes = 8
 
 [node name="die1Sprite" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(0, -37)
 texture = ExtResource("5_ba2ho")
-offset = Vector2(0, -36)
 hframes = 8
 vframes = 8
 
