@@ -2670,16 +2670,16 @@ vframes = 8
 
 [node name="atack2Sprite" type="Sprite2D" parent="."]
 visible = false
-z_index = 1
+y_sort_enabled = true
 texture = ExtResource("7_3wit3")
-offset = Vector2(0, -41)
+offset = Vector2(0, -39)
 hframes = 15
 vframes = 8
 
 [node name="atack3Sprite" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("8_tin6r")
-offset = Vector2(0, -41)
+offset = Vector2(0, -49)
 hframes = 16
 vframes = 8
 
